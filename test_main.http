@@ -11,12 +11,12 @@ Content-Type: application/json
 ###
 
 # Read a user
-GET http://localhost:8000/api?name=Test Test
+GET http://localhost:8000/api/6
 
 ###
 
 # Update a user
-PUT http://localhost:8000/api?name=Test Test
+PUT http://localhost:8000/api/6
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 ###
 
 # Delete a user
-DELETE http://localhost:8000/api?name=Test 2
+DELETE http://localhost:8000/api/6

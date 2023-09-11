@@ -8,7 +8,7 @@ manage user records.
 - [Getting Started](#getting-started)
     - [Use Case Diagram for API Classes](#use-case-diagram-for-api-classes)
     - [Entity-Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
-    - [Prerequisites](#prerequisites)
+- [Prerequisites](#prerequisites)
     - [Installation](#installation)
 - [API Endpoints](#api-endpoints)
     - [Create User](#create-user)
@@ -33,7 +33,7 @@ This UML diagram provides an overview of the structure of our API classes and th
 
 The ERD illustrates the database tables and their relationships in the application.
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
