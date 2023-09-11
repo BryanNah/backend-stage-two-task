@@ -1,6 +1,4 @@
-from fastapi import Depends, FastAPI, HTTPException, Request, status
-from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse
+from fastapi import Depends, FastAPI, HTTPException
 
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -11,10 +9,7 @@ from .models import User
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(
-    validation_error_status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-    validation_error_model=schemas.CustomValidationError,
-)
+app = FastAPI()
 
 
 # Dependency
@@ -29,6 +24,9 @@ def get_db():
 # Create a user
 @app.post("/api", response_model=schemas.UserReturn)
 def create_user(user: schemas.UserCRUD, db: Session = Depends(get_db)):
+    if not user.name:
+        raise HTTPException(status_code=400, detail='Name is required')
+
     db_user = User(name=user.name)
     db.add(db_user)
     db.commit()
@@ -50,6 +48,9 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
 # Update a user
 @app.put("/api/{user_id}", response_model=schemas.UserReturn)
 def update_user(user_id: int, user: schemas.UserCRUD, db: Session = Depends(get_db)):
+    if not user.name:
+        raise HTTPException(status_code=400, detail='Name is required')
+
     db_user = db.query(User).filter_by(id=user_id).first()
 
     if db_user is None:
@@ -90,11 +91,3 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
 
     db.close()
     return {"detail": "User successfully deleted"}
-
-
-@app.exception_handler(RequestValidationError)
-async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    return JSONResponse(
-        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-        content={"detail": "ID should be an Integer"},
-    )
