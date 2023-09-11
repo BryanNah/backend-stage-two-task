@@ -117,7 +117,7 @@ The application will be accessible at http://localhost:8000.
 
 Here are some sample API requests and responses:
 
-For information about the API Usage (http://localhost:8000/docs)
+For information about the API Usage (https://hng-backend-task-tcnq.onrender.com/docs)
 
 ### Create User:
 
