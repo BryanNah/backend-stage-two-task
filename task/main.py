@@ -103,7 +103,7 @@ def delete_user(name: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="User with this name already exists")
 
     db.close()
-    return {"detail": "User deleted"}
+    return {"detail": "User successfully deleted"}
 
 
 @app.exception_handler(RequestValidationError)
