@@ -2,5 +2,5 @@ fastapi~=0.103.1
 sqlalchemy==2.0.20
 uvicorn==0.22.0
 mysql-connector-python==8.0.33  # For MySQL database, adjust version if needed
-python-dotenv==1.0.0  # For managing environment variables from .env file
+python-dotenv==0.21.1  # For managing environment variables from .env file
 pydantic==2.3.0
