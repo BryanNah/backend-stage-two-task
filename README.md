@@ -17,7 +17,7 @@ manage user records.
     - [Delete User](#delete-user)
 - [Request and Response Formats](#request-and-response-formats)
 - [Sample API Usage](#sample-api-usage)
-- [Known Limitations or Assumptions Made During Development](#limitations)
+- [Known Limitations or Assumptions Made During Development](#known-limitations-or-assumptions-made-during-development)
 
 ## Getting Started
 
