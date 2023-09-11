@@ -6,6 +6,8 @@ manage user records.
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+    - [Use Case Diagram for API Classes](#use-case-diagram-for-api-classes)
+    - [Entity-Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
 - [API Endpoints](#api-endpoints)
@@ -15,8 +17,21 @@ manage user records.
     - [Delete User](#delete-user)
 - [Request and Response Formats](#request-and-response-formats)
 - [Sample API Usage](#sample-api-usage)
+- [Known Limitations or Assumptions Made During Development](#limitations)
 
 ## Getting Started
+
+### Use Case Diagram for API Classes
+
+![API Classes UML Diagram](images/usecase.png)
+
+This UML diagram provides an overview of the structure of our API classes and their relationships.
+
+### Entity-Relationship Diagram (ERD)
+
+![Entity-Relationship Diagram (ERD)](images/erd.png)
+
+The ERD illustrates the database tables and their relationships in the application.
 
 ### Prerequisites
 
@@ -80,7 +95,7 @@ The application will be accessible at http://localhost:8000.
     Request Body: JSON
     Response: JSON
 
-### Read User
+### Delete User
 
     Endpoint: /api/{user_id}
     HTTP Method: DELETE
@@ -103,6 +118,7 @@ The application will be accessible at http://localhost:8000.
 Here are some sample API requests and responses:
 
 For information about the API Usage (http://localhost:8000/docs)
+
 ### Create User:
 
 * Request
@@ -158,3 +174,10 @@ For information about the API Usage (http://localhost:8000/docs)
   {
     "details": "User successfully deleted"
   }
+
+## Known Limitations or Assumptions Made During Development
+
+    1. The API assumes that the id field of a user is unique and auto-incrementing.
+    2. The API assumes that the name field of a user is a string.
+    3. The API does not perform any authentication or authorization.
+    4. The database used is SQLite which stores data in the file on local system.
